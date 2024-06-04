@@ -31,3 +31,18 @@ body {
     border: 0.5px solid black;
 }
 
+#square-container{
+    display: inline-flex;
+    flex: wrap;
+}
+
+.square{
+    background-color: blue;
+    height: 150px;
+    width: 150px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: white;
+    text-align: center;
+    
+}
