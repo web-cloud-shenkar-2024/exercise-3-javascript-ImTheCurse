@@ -26,7 +26,28 @@ function insertRectangle(char) {
 
 }
 
-function initSongs() {
+function initSongs(parentNode) {
+	fetch('../data/music.json')
+		.then((response) => response.json())
+		.then((json) => {
+			const title = json.title;
+			const titleElem = document.createElement("h1");
+			titleElem.innerHTML += title;
+			titleElem.style.textAlign = 'center';
+			document.body.appendChild(titleElem);
+
+			const songs = json.songs;
+			const section = document.createElement('ol');
+			songs.forEach(song => {
+				const item = document.createElement('li');
+				item.innerHTML += `${song.songName} - ${song.artist}`;
+				section.appendChild(item);
+
+			});
+			section.style.paddingLeft = '30px';
+			document.body.appendChild(section);
+		})
+
 }
 
 function chooseRectangleColor() {
@@ -58,7 +79,11 @@ function subtractRectangle() {
 }
 function switchRectanglesSongs() {
 	document.getElementById('square-container').innerHTML = "";
+	populateSongsInList();
 }
 
 function populateSongsInList() {
+	const list = document.createElement("ul");
+	initSongs(list);
+	document.body.appendChild(list);
 }
