@@ -1,3 +1,56 @@
 {
+	"title": "Spotify Top 10 Songs of 2024",
+	"songs":[
+		{
+			"id":1,
+			"artist":"Sabrina Carpenter",
+			"songName":"Espresso"
+		},
+		{
+			"id":2,
+			"artist":"Good Luck, Babe!",
+			"songName":"Chappell Roan"
+		},
+		{
+			"id":3,
+			"artist":"Like That",
+			"songName":"Future, Metro Boomin, Kendrick Lamar"
+		},
+		{
+			"id":4,
+			"artist":"Magnetic",
+			"songName":"ILLIT"
+		},
+		{
+			"id":5,
+			"artist":"Fortnight (feat. Post Malone)",
+			"songName":"Taylor Swift, Post Malone"
+		},
+		{
+			"id":6,
+			"artist":"i like the way you kiss me",
+			"songName":"Artemas"
+		},
+		{
+			"id":7,
+			"artist":"Gata Only",
+			"songName":"FloyyMenor, Cris Mj"
+		},
+		{
+			"id":8,
+			"artist":"Type Shit",
+			"songName":"Future, Metro Boomin, Travis Scott, Playboi Carti"
+		},
+		{
+			"id":9,
+			"artist":"euphoria",
+			"songName":"Kendrick Lamar"
+		},
+		{
+			"id":10,
+			"artist":"overseas",
+			"songName":"Ken Carson"
+		}
+	]
 
 }

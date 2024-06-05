@@ -57,6 +57,7 @@ function subtractRectangle() {
 
 }
 function switchRectanglesSongs() {
+	document.getElementById('square-container').innerHTML = "";
 }
 
 function populateSongsInList() {
