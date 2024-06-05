@@ -48,6 +48,13 @@ function addRectangle() {
 }
 
 function subtractRectangle() {
+	const elements = document.getElementsByClassName('square');
+	const container = document.getElementById('square-container');
+	if (elements.length < 1) { return; }
+	const last = elements[elements.length - 1];
+
+	container.removeChild(last);
+
 }
 function switchRectanglesSongs() {
 }
