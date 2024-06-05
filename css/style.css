@@ -32,8 +32,10 @@ body {
 }
 
 #square-container{
-    display: inline-flex;
+    display: flex;
     flex: wrap;
+    flex-wrap:wrap;
+    align-content:flex-start;
 }
 
 .square{
@@ -43,5 +45,9 @@ body {
     margin-left: 20px;
     color: white;
     text-align: center;
-    
+    flex-shrink:0;    
+}
+
+#plus,#minus,#switch{
+    cursor: pointer;
 }

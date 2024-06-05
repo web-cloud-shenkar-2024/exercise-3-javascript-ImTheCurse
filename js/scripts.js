@@ -3,16 +3,27 @@ window.onload = () => {
 
 }
 
+function getChar(idx) {
+	const fullName = ['r', 'a', 'n', 'i', 'g', 'i', 'r', 'o'];
+	return fullName[idx % 8];
+}
+
 function initRectangles() {
 	const fullName = ['r', 'a', 'n', 'i', 'g', 'i', 'r', 'o'];
 	fullName.forEach((char) => {
-		const square = document.createElement("div");
-		square.className = "square";
-		square.innerHTML += char;
-		square.style.backgroundColor = chooseRectangleColor();
-		const container = document.getElementById("square-container");
-		container.appendChild(square);
+		insertRectangle(char);
 	});
+}
+
+function insertRectangle(char) {
+	const square = document.createElement("div");
+	square.className = "square";
+	square.innerHTML += char;
+	square.style.backgroundColor = chooseRectangleColor();
+	const container = document.getElementById("square-container");
+	container.appendChild(square);
+
+
 }
 
 function initSongs() {
@@ -31,6 +42,9 @@ function chooseRectangleColor() {
 }
 
 function addRectangle() {
+	const char = getChar(document.getElementsByClassName('square').length);
+	insertRectangle(char);
+
 }
 
 function subtractRectangle() {
