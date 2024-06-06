@@ -51,3 +51,7 @@ body {
 #plus,#minus,#switch{
     cursor: pointer;
 }
+
+ul {
+  list-style-type: none;
+}

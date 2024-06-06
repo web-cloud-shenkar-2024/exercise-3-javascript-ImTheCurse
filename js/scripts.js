@@ -37,10 +37,10 @@ function initSongs(parentNode) {
 			document.body.appendChild(titleElem);
 
 			const songs = json.songs;
-			const section = document.createElement('ol');
+			const section = document.createElement('ul');
 			songs.forEach(song => {
 				const item = document.createElement('li');
-				item.innerHTML += `${song.songName} - ${song.artist}`;
+				item.innerHTML += `${song.id}. ${song.songName} - ${song.artist}`;
 				section.appendChild(item);
 
 			});
@@ -79,6 +79,10 @@ function subtractRectangle() {
 }
 function switchRectanglesSongs() {
 	document.getElementById('square-container').innerHTML = "";
+	const topbar = document.getElementById('topbar');
+	topbar.style.backgroundColor = 'white';
+	topbar.innerHTML = "";
+
 	populateSongsInList();
 }
 
