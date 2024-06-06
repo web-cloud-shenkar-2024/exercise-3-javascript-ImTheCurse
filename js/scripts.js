@@ -26,7 +26,7 @@ function insertRectangle(char) {
 
 }
 
-function initSongs(parentNode) {
+function initSongs() {
 	fetch('../data/music.json')
 		.then((response) => response.json())
 		.then((json) => {
@@ -34,7 +34,12 @@ function initSongs(parentNode) {
 			const titleElem = document.createElement("h1");
 			titleElem.innerHTML += title;
 			titleElem.style.textAlign = 'center';
-			document.body.appendChild(titleElem);
+
+			const header = document.getElementsByTagName('header');
+			const topbar = document.getElementById('topbar');
+			header[0].insertBefore(titleElem, topbar);
+			const node = document.getElementById('square-container');
+
 
 			const songs = json.songs;
 			const section = document.createElement('ul');
@@ -73,7 +78,6 @@ function subtractRectangle() {
 	const container = document.getElementById('square-container');
 	if (elements.length < 1) { return; }
 	const last = elements[elements.length - 1];
-
 	container.removeChild(last);
 
 }
@@ -82,12 +86,10 @@ function switchRectanglesSongs() {
 	const topbar = document.getElementById('topbar');
 	topbar.style.backgroundColor = 'white';
 	topbar.innerHTML = "";
-
+	topbar.remove();
 	populateSongsInList();
 }
 
 function populateSongsInList() {
-	const list = document.createElement("ul");
-	initSongs(list);
-	document.body.appendChild(list);
+	initSongs();
 }
