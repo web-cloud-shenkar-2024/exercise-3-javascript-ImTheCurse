@@ -27,7 +27,7 @@ function insertRectangle(char) {
 }
 
 function initSongs() {
-	fetch('../data/music.json')
+	fetch('./data/music.json')
 		.then((response) => response.json())
 		.then((json) => {
 			const title = json.title;
