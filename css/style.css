@@ -9,6 +9,7 @@ header, main, footer, nav, aside, section, article, div {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    display: grid;
 }
 
 #topbar{
@@ -33,9 +34,23 @@ body {
 
 #square-container{
     display: flex;
-    flex: wrap;
     flex-wrap:wrap;
-    align-content:flex-start;
+    width: 1000px;
+    justify-self: center;
+}
+
+#song-wrapper{
+    width: 1000px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+h1{
+    align-self: center;
+    padding-bottom: 30px;
 }
 
 .square{

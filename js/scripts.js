@@ -9,6 +9,7 @@ function getChar(idx) {
 }
 
 function initRectangles() {
+	document.getElementById('switch').innerHTML = 'switch to songs';
 	const fullName = ['r', 'a', 'n', 'i', 'g', 'i', 'r', 'o'];
 	fullName.forEach((char) => {
 		insertRectangle(char);
@@ -30,16 +31,16 @@ function initSongs() {
 	fetch('./data/music.json')
 		.then((response) => response.json())
 		.then((json) => {
+			const wrapper = document.createElement("div");
+			wrapper.id = 'song-wrapper';
 			const title = json.title;
 			const titleElem = document.createElement("h1");
+			titleElem.id = 'title';
 			titleElem.innerHTML += title;
 			titleElem.style.textAlign = 'center';
+			document.body.appendChild(titleElem);
 
-			const header = document.getElementsByTagName('header');
-			const topbar = document.getElementById('topbar');
-			header[0].insertBefore(titleElem, topbar);
-			const node = document.getElementById('square-container');
-
+		
 
 			const songs = json.songs;
 			const section = document.createElement('ul');
@@ -50,20 +51,16 @@ function initSongs() {
 
 			});
 			section.style.paddingLeft = '30px';
-			document.body.appendChild(section);
+			wrapper.appendChild(section);
+			document.body.appendChild(wrapper);
 		})
 
 }
 
 function chooseRectangleColor() {
 	const colors = ['green', 'blue', 'red'];
-
-	const random = (min, max) => {
-		const minCeiled = Math.ceil(min);
-		const maxFloored = Math.floor(max);
-		return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
-	}
-	return colors[random(0, 2)];
+	const squareLen = document.getElementsByClassName('square').length;
+	return colors[squareLen % colors.length];
 
 }
 
@@ -83,11 +80,22 @@ function subtractRectangle() {
 }
 function switchRectanglesSongs() {
 	document.getElementById('square-container').innerHTML = "";
-	const topbar = document.getElementById('topbar');
-	topbar.style.backgroundColor = 'white';
-	topbar.innerHTML = "";
-	topbar.remove();
-	populateSongsInList();
+	const switchElem = document.getElementById('switch');
+
+	if (switchElem.textContent == 'switch to songs'){
+		switchElem.innerHTML = 'switch to rectangles';
+		document.getElementById('plusClick').onclick = null;
+		document.getElementById('minus').onclick = null;
+		populateSongsInList();
+	}else{
+		switchElem.innerHTML = 'switch to songs';
+		document.getElementById('title').remove();
+ 		document.getElementById('song-wrapper').remove();
+		document.getElementById('plusClick').onclick = addRectangle;
+		document.getElementById('minus').onclick = subtractRectangle;
+
+		initRectangles();
+	}
 }
 
 function populateSongsInList() {
