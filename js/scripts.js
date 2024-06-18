@@ -38,9 +38,8 @@ function initSongs() {
 			titleElem.id = 'title';
 			titleElem.innerHTML += title;
 			titleElem.style.textAlign = 'center';
-			document.body.appendChild(titleElem);
 
-		
+
 
 			const songs = json.songs;
 			const section = document.createElement('ul');
@@ -52,7 +51,9 @@ function initSongs() {
 			});
 			section.style.paddingLeft = '30px';
 			wrapper.appendChild(section);
-			document.body.appendChild(wrapper);
+			const main = document.getElementsByTagName('main')[0];
+			main.appendChild(titleElem);
+			main.appendChild(wrapper);
 		})
 
 }
@@ -82,15 +83,15 @@ function switchRectanglesSongs() {
 	document.getElementById('square-container').innerHTML = "";
 	const switchElem = document.getElementById('switch');
 
-	if (switchElem.textContent == 'switch to songs'){
+	if (switchElem.textContent == 'switch to songs') {
 		switchElem.innerHTML = 'switch to rectangles';
 		document.getElementById('plusClick').onclick = null;
 		document.getElementById('minus').onclick = null;
 		populateSongsInList();
-	}else{
+	} else {
 		switchElem.innerHTML = 'switch to songs';
 		document.getElementById('title').remove();
- 		document.getElementById('song-wrapper').remove();
+		document.getElementById('song-wrapper').remove();
 		document.getElementById('plusClick').onclick = addRectangle;
 		document.getElementById('minus').onclick = subtractRectangle;
 
